@@ -51,7 +51,7 @@ local function looks_like_cpp(bufnr)
     if line:find("^%s*#%s*include%s*[<\"]") then
       includes = includes + 1
     end
-    if line:find("^%s*#%s*pragma%s+once") or line:find("^%s*#%s*ifndef%s+[%w_]") or line:find(...) then
+    if line:find("^%s*#%s*pragma%s+once") or line:find("^%s*#%s*ifndef%s+[%w_]") or line:find("^%s*#%s*define%s+[%w_]") then
       guards = guards + 1
     end
     if
