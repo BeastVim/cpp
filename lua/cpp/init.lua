@@ -122,14 +122,14 @@ function M.setup()
         end
       end,
       keys = {
-        { "K", vim.lsp.buf.hover, desc = "Hover", cond = "textDocument/hover" },
-        { "<leader>rn", vim.lsp.buf.rename, desc = "Rename", cond = "textDocument/rename" },
+        { "K", vim.lsp.buf.hover, desc = "Hover", method = "textDocument/hover" },
+        { "<leader>rn", vim.lsp.buf.rename, desc = "Rename", method = "textDocument/rename" },
         {
           "<Leader>la",
           vim.lsp.buf.code_action,
           mode = { "n", "v" },
           desc = "Code action",
-          cond = "textDocument/codeAction",
+          method = "textDocument/codeAction",
         },
         {
           "<leader>lh",
@@ -137,7 +137,7 @@ function M.setup()
             M.switch_source_header(vim.api.nvim_get_current_buf())
           end,
           desc = "Switch source/header",
-          -- No `cond`: switchSourceHeader is a clangd extension, not
+          -- No `method`: switchSourceHeader is a clangd extension, not
           -- a standard capability, so supports_method never sees it.
         },
       },
